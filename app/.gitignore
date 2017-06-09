@@ -1,1 +1,44 @@
+.idea/misc.xml
+
+*.iml
+app/*.iml
+base/*.iml
+camera/*.iml
+network/*.iml
+stlivenesslibrary/*.iml
+sweetalert/*.iml
+
+.gradle
+local.properties
+.idea/workspace.xml
+.idea/libraries
+.DS_Store
 /build
+/captures
+.externalNativeBuild
+freeline
+freeline.py
+freeline_project_description.json
+*.class
+
+*.classpath
+*.project
+app/src/main/bin/
+app/src/main/gen/
+app/src/main/project.properties
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+build/
+.gradle/
+.idea
+*.idea
+.idea/modules.xml
