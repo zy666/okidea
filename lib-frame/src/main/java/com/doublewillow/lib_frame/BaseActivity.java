@@ -6,7 +6,9 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Toast;
 
 /**
  * @author zhouyou
@@ -33,7 +35,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
-
+    public void showToast(String msg) {
+        if(!TextUtils.isEmpty(msg)) {
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        }
+    }
     //通过程序改变屏幕显示的方向
     // SCREEN_ORIENTATION_UNSPECIFIED,//未指定，此为默认值。由Android系统自己选择合适的方向。
     // ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE 横屏
