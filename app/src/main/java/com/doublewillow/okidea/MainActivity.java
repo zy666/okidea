@@ -7,8 +7,9 @@ import android.view.View;
 
 import com.doublewillow.lib_frame.BaseActivity;
 import com.doublewillow.okidea.databinding.ActivityMainBinding;
+import com.doublewillow.okidea.httpdemo.HttpActivity;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private ActivityMainBinding mainBinding;
 
@@ -20,20 +21,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         setContentView(view);
         mainBinding.btnStart.setOnClickListener(this);
         mainBinding.btnStop.setOnClickListener(this);
+        mainBinding.btnHttp.setOnClickListener(this);
     }
 
 
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.btn_start) {
-            showToast("开启服务");
             Intent intent = new Intent(this, MyService.class);
             startService(intent);
         } else if (id == R.id.btn_stop) {
-            showToast("关闭服务");
-
             Intent intent = new Intent(this, MyService.class);
             stopService(intent);
+        } else if (id == R.id.btn_http) {
+            Intent intent = new Intent(this, HttpActivity.class);
+            startActivity(intent);
         }
     }
 }
