@@ -8,12 +8,11 @@ import android.widget.TextView;
 import com.doublewillow.lib_frame.BaseActivity;
 import com.doublewillow.okidea.R;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class HttpActivity extends BaseActivity {
     TextView textView;
@@ -49,38 +48,50 @@ public class HttpActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                HttpURLConnection httpURLConnection = null;
-                BufferedReader reader = null;
+//                HttpURLConnection httpURLConnection = null;
+//                BufferedReader reader = null;
+//                try {
+//                    URL url = new URL("https://juejin.im/search?query=android%20http");
+//                    httpURLConnection = (HttpURLConnection) url.openConnection();
+//                    httpURLConnection.setRequestMethod("GET");
+//                    httpURLConnection.setReadTimeout(8000);
+//                    httpURLConnection.setConnectTimeout(8000);
+//                    InputStream inputStream = httpURLConnection.getInputStream();
+//                    //下边对获取到的输入流进行获取
+//
+//                    reader = new BufferedReader(new InputStreamReader(inputStream));
+//
+//                    StringBuffer stringBuffer = new StringBuffer();
+//                    String line;
+//                    while ((line = reader.readLine()) != null) {
+//                        stringBuffer.append(line);
+//                    }
+//                    showResponse(stringBuffer.toString());
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                } finally {
+//                    if (reader != null) {
+//                        try {
+//                            reader.close();
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                    if (httpURLConnection != null) {
+//                        httpURLConnection.disconnect();
+//                    }
+//                }
+
                 try {
-                    URL url = new URL("https://juejin.im/search?query=android%20http");
-                    httpURLConnection = (HttpURLConnection) url.openConnection();
-                    httpURLConnection.setRequestMethod("GET");
-                    httpURLConnection.setReadTimeout(8000);
-                    httpURLConnection.setConnectTimeout(8000);
-                    InputStream inputStream = httpURLConnection.getInputStream();
-                    //下边对获取到的输入流进行获取
-
-                    reader = new BufferedReader(new InputStreamReader(inputStream));
-
-                    StringBuffer stringBuffer = new StringBuffer();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        stringBuffer.append(line);
-                    }
-                    showResponse(stringBuffer.toString());
-                } catch (Exception e) {
+                    OkHttpClient client = new OkHttpClient();
+                    Request request = new Request.Builder()
+                            .url("https://juejin.im/search?query=android%20http")
+                            .build();
+                    Response response = client.newCall(request).execute();
+                    String responseData = response.body().string();
+                    showResponse(responseData);
+                } catch (IOException e) {
                     e.printStackTrace();
-                } finally {
-                    if (reader != null) {
-                        try {
-                            reader.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
                 }
             }
         }).start();
