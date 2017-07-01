@@ -8,6 +8,7 @@ import android.view.View;
 import com.doublewillow.lib_frame.BaseActivity;
 import com.doublewillow.okidea.databinding.ActivityMainBinding;
 import com.doublewillow.okidea.httpdemo.HttpActivity;
+import com.doublewillow.okidea.httpdemo.MyViewActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -22,6 +23,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mainBinding.btnStart.setOnClickListener(this);
         mainBinding.btnStop.setOnClickListener(this);
         mainBinding.btnHttp.setOnClickListener(this);
+        mainBinding.btnView.setOnClickListener(this);
     }
 
 
@@ -35,6 +37,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             stopService(intent);
         } else if (id == R.id.btn_http) {
             Intent intent = new Intent(this, HttpActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.btn_view) {
+            Intent intent = new Intent(this, MyViewActivity.class);
             startActivity(intent);
         }
     }
