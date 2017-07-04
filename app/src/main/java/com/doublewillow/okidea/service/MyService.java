@@ -1,4 +1,4 @@
-package com.doublewillow.okidea;
+package com.doublewillow.okidea.service;
 
 import android.app.Service;
 import android.content.Intent;

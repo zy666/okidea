@@ -4,6 +4,13 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
+
+    <!-- if you want to load images from the internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- if you want to load images from a file OR from the internet -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,15 +31,13 @@
         </activity>
 
         <service
-            android:name=".MyService"
+            android:name=".service.MyService"
             android:enabled="true"
             android:exported="true">
         </service>
 
-        <activity android:name=".httpdemo.HttpActivity">
-        </activity>
-        <activity android:name=".httpdemo.MyViewActivity">
-        </activity>
+        <activity android:name=".httpdemo.HttpActivity"/>
+        <activity android:name=".httpdemo.MyViewActivity"/>
     </application>
 
 </manifest>
