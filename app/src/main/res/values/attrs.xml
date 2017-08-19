@@ -17,4 +17,8 @@
         <attr name="loadErrorDrawable" format="reference" />
         <attr name="loadPauseDrawable" format="reference" />
     </declare-styleable>
+    <declare-styleable name="InputEditLayout">
+        <attr name="hasEyesBtn" format="boolean"/>
+    </declare-styleable>
+
 </resources>

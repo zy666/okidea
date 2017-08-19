@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.doublewillow.okidea">
 
+    <!-- if you want to load images from the internet -->
     <uses-permission android:name="android.permission.INTERNET"/>
 
-
-    <!-- if you want to load images from the internet -->
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <!-- if you want to load images from a file OR from the internet -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/lufei"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
         <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -36,8 +35,48 @@
             android:exported="true">
         </service>
 
-        <activity android:name=".httpdemo.HttpActivity"/>
-        <activity android:name=".httpdemo.MyViewActivity"/>
+        <activity
+            android:name=".httpdemo.HttpActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="http服务测试"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".avtivity.MyViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="自定义view"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".avtivity.MessageListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="公告"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".avtivity.RwhActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="任我花"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".avtivity.LoginActivity">
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <activity android:name=".avtivity.XianChengActivity">
+        </activity>
+        <activity android:name=".avtivity.BaiduActivity">
+        </activity>
     </application>
 
 </manifest>

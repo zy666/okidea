@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">okidea</string>
+    <string name="tv_login">登陆</string>
+    <string name="tv_forget_password">忘记密码</string>
+    <string name="tv_register">立即注册</string>
+    <string name="tv_no_account">没有帐号?</string>
+    <string name="_6_18">密码（6-18位字母或数字）</string>
+    <string name="tv_phone">手机号码</string>
+
 </resources>

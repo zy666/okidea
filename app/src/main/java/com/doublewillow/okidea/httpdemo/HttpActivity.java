@@ -1,5 +1,7 @@
 package com.doublewillow.okidea.httpdemo;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,7 +45,9 @@ public class HttpActivity extends BaseActivity {
             }
         });
     }
-
+    public static Intent createIntent(Context context) {
+        return new Intent(context, HttpActivity.class);
+    }
     public void sendRequestWithHttpUrlConnection() {
         new Thread(new Runnable() {
             @Override

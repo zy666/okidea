@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:paddingLeft="34dp"
+        android:paddingRight="34dp"
+        android:paddingTop="57dp">
+
+        <com.doublewillow.okidea.widget.InputEditLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edit_input_bg">
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/tv_phone"
+                android:inputType="number"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:textColor="#333333"
+                android:textColorHint="#AEACB5"
+                android:textSize="17sp" />
+        </com.doublewillow.okidea.widget.InputEditLayout>
+
+        <com.doublewillow.okidea.widget.InputEditLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_input_bg"
+            app:hasEyesBtn="true">
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:digits="0123456789qwertyuioplkjhgfdsazxcvbnm"
+                android:hint="@string/_6_18"
+                android:inputType="textPassword"
+                android:maxLength="18"
+                android:maxLines="1"
+                android:textColor="#333333"
+                android:textColorHint="#AEACB5"
+                android:textSize="17sp" />
+        </com.doublewillow.okidea.widget.InputEditLayout>
+
+        <Button
+            android:id="@+id/bt_login"
+            style="@style/option_btn"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="58dp"
+            android:text="@string/tv_login" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/tv_no_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_no_account"
+                android:textColor="#686871"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/tv_no_account"
+                android:text="@string/tv_register"
+                android:textColor="#3399ff"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_forget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/tv_forget_password"
+                android:textColor="#3399ff"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

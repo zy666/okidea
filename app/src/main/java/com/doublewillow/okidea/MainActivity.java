@@ -7,10 +7,16 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.doublewillow.lib_frame.BaseActivity;
+import com.doublewillow.okidea.avtivity.MessageListActivity;
+import com.doublewillow.okidea.avtivity.MyViewActivity;
+import com.doublewillow.okidea.avtivity.RwhActivity;
+import com.doublewillow.okidea.avtivity.XianChengActivity;
 import com.doublewillow.okidea.databinding.ActivityMainBinding;
 import com.doublewillow.okidea.httpdemo.HttpActivity;
-import com.doublewillow.okidea.httpdemo.MyViewActivity;
 import com.doublewillow.okidea.service.MyService;
+import com.luck.picture.lib.PictureSelector;
+import com.luck.picture.lib.config.PictureConfig;
+import com.luck.picture.lib.config.PictureMimeType;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
@@ -32,6 +38,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mainBinding.btnStop.setOnClickListener(this);
         mainBinding.btnHttp.setOnClickListener(this);
         mainBinding.btnView.setOnClickListener(this);
+        mainBinding.btnPullRefresh.setOnClickListener(this);
     }
 
     public void initBanner() {
@@ -71,11 +78,37 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             Intent intent = new Intent(this, MyService.class);
             stopService(intent);
         } else if (id == R.id.btn_http) {
-            Intent intent = new Intent(this, HttpActivity.class);
-            startActivity(intent);
+            startActivity(HttpActivity.createIntent(this));
         } else if (id == R.id.btn_view) {
-            Intent intent = new Intent(this, MyViewActivity.class);
-            startActivity(intent);
+            startActivity(MyViewActivity.createIntent(this));
+        } else if (id == R.id.btn_pull_refresh) {
+            startActivity(MessageListActivity.createIntent(this));
+        } else if (id == R.id.btn_rwh) {
+            startActivity(RwhActivity.createIntent(this));
+        } else if (id == R.id.btn_camera) {
+            showCamera();
+        } else if (id == R.id.btn_handler) {
+            startActivity(XianChengActivity.createIntent(this));
+        }else if (id == R.id.btn_lbs) {
+            startActivity(XianChengActivity.createIntent(this));
+        }
+    }
+
+
+    public void showCamera() {
+        PictureSelector.create(MainActivity.this)
+                .openCamera(PictureMimeType.ofAudio())
+                .forResult(PictureConfig.CHOOSE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case PictureConfig.CHOOSE_REQUEST:
+
+            }
         }
     }
 }
